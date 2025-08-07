@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Room Allocations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='allocations.css') }}">
+</head>
+
+
+</head>
+<body>
+    <h2>Room Allocation Results</h2>
+    <table border="1">
+        <tr><th>Student Name</th><th>Room No</th></tr>
+        {% for r in results %}
+        <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/admin">Back to Admin</a>
+</body>
+</html>

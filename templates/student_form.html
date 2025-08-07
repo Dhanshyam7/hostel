@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Room Preference Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='student_form.css') }}">
+</head>
+<body>
+    <h2>Hostel Room Preference</h2>
+    <form action="/submit" method="post">
+        Name: <input type="text" name="name"><br>
+        Gender: 
+        <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+        Batch: <input type="text" name="batch"><br>
+        Preferred Roommate: <input type="text" name="roommate"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

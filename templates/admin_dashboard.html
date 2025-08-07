@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='admin.css') }}">
+
+</head>
+<body>
+    <h2>Admin - Hostel Rooms</h2>
+
+    <h3>Add Room</h3>
+    <form action="/add_room" method="post">
+        Room No: <input type="text" name="room_no"><br>
+        Gender:
+        <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+        Capacity: <input type="number" name="capacity"><br>
+        <input type="submit" value="Add Room">
+    </form>
+
+    <hr>
+
+    <h3>Student Applications</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Name</th><th>Gender</th><th>Batch</th><th>Preferred Roommate</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>{{ s[0] }}</td>
+            <td>{{ s[1] }}</td>
+            <td>{{ s[2] }}</td>
+            <td>{{ s[3] }}</td>
+            <td>{{ s[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <hr>
+
+    <h3>Available Rooms</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Room No</th><th>Gender</th><th>Capacity</th><th>Allocated</th>
+        </tr>
+        {% for r in rooms %}
+        <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[1] }}</td>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <hr>
+
+    <h3>Reset Allocations</h3>
+    <form method="POST" action="/reset_allocations">
+        <button type="submit">
+    </form>
+
+</body>
+</html>
+
